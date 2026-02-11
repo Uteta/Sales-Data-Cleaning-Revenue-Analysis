@@ -50,4 +50,16 @@ df['revenue'] = df['quantity'] * df['price']
 df.to_csv("cleaned_sales_data.csv", index=False)
 print("Cleanded data saved to 'cleaned_sales_data.csv'.")
 
+# -------------------------------
+# 8. Business Insights
+# -------------------------------
+print("\n--- Business Insights ---")
+
+print("Total Revenue:", df['revenue'].sum())
+print("Average Order Value:", round(df['revene'].mean(), 2))
+
+top_products = df.groupby('product')['revenue'].sum().sort_values(ascending=False)
+print("\nTop Products by Revenue:")
+print(top_products)
+
 
